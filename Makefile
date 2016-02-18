@@ -101,3 +101,6 @@ $(dir_build)/fatfs/%.o: $(dir_source)/fatfs/%.s
 	@mkdir -p "$(@D)"
 	$(COMPILE.s) -mthumb -mthumb-interwork $(OUTPUT_OPTION) $<
 include $(call rwildcard, $(dir_build), *.d)
+
+$(dir_out)/: $(dir_build)/main.bin
+	@cp -av $(dir_data)/* $@
